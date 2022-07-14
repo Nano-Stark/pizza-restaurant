@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 // const MONGO_URL = process.env.MONGO_URL
+// vercel + mongodb integration
 const MONGO_URL = process.env.MONGODB_URI;
 
 if (!MONGO_URL) {

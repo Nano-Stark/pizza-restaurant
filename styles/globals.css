@@ -11,6 +11,12 @@ a {
   text-decoration: none;
 }
 
-* {
+/* * {
   box-sizing: border-box;
+} */
+
+@media screen and (min-width:960px) {
+  * {
+    box-sizing: border-box;
+  }
 }

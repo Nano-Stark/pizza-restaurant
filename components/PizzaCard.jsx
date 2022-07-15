@@ -5,10 +5,10 @@ import Link from "next/link";
 const PizzaCard = ({ pizza }) => {
   return (
     <div className={styles.container}>
-      <Link href={`/products/${pizza._id}`}>
-        <>
+      <Link href={`/products/${pizza._id}`} passHref>
+        <a>
           <Image src={pizza.img} alt="" width="500" height="500" />
-        </>
+        </a>
       </Link>
       <h1 className={styles.title}>{pizza.title}</h1>
       <span className={styles.price}>${pizza.price[0]}</span>

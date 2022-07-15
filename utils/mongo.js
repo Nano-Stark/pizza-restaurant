@@ -1,8 +1,13 @@
 import mongoose from "mongoose";
 
-const MONGO_URL = process.env.MONGO_URL;
+let MONGO_URL;
+if (process.env.NODE_ENV === "production") {
+  MONGO_URL = process.env.MONGODB_URI;
+} else {
+  MONGO_URL = process.env.MONGO_URI;
+}
+
 // vercel + mongodb integration
-// const MONGO_URL = process.env.MONGODB_URI;
 
 if (!MONGO_URL) {
   throw new Error(

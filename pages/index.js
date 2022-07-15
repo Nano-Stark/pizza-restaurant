@@ -7,6 +7,7 @@ import AddButton from "../components/AddButton";
 import Featured from "../components/Featured";
 import PizzaList from "../components/PizzaList";
 import styles from "../styles/Home.module.css";
+import BASE_URL from "../utils/constants";
 // import dbConnect from "../utils/mongo";
 
 export default function Home({ pizzaList, admin }) {
@@ -28,7 +29,7 @@ export default function Home({ pizzaList, admin }) {
   // ];
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get("http://localhost:3000/api/products");
+      const res = await axios.get(`${BASE_URL}/api/products`);
       setPizza(res.data);
     }
     fetchData();
@@ -55,7 +56,8 @@ export const getServerSideProps = async (ctx) => {
   if (myCookie.token === process.env.TOKEN) {
     admin = true;
   }
-  const res = await axios.get("http://localhost:3000/api/products");
+  console.log(`${BASE_URL}/api/products`);
+  const res = await axios.get(`${BASE_URL}/api/products`);
   return {
     props: {
       pizzaList: res.data,
